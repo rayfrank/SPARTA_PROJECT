@@ -11,25 +11,15 @@ This Java Music Player Application is a project developed by a team of 5 members
 
 ## Team Members
 
-1. **John Doe** - Team Lead / Backend Developer
-   - GitHub: [john-doe](https://github.com/john-doe)
+1. **Ray** - Team Lead / Backend Developer
+   - GitHub: [Ray](https://github.com/john-doe)
    - Role: Responsible for overall project coordination and backend development.
 
-2. **Jane Smith** - Frontend Developer
-   - GitHub: [jane-smith](https://github.com/jane-smith)
+2. **Fred** - Frontend Developer
+   - GitHub: [fred](https://github.com/jane-smith)
    - Role: Designed and implemented the user interface using JavaFX.
 
-3. **Robert Johnson** - Database Developer
-   - GitHub: [robert-johnson](https://github.com/robert-johnson)
-   - Role: Handled database integration and storage of user preferences.
 
-4. **Emily Brown** - Testing and Quality Assurance
-   - GitHub: [emily-brown](https://github.com/emily-brown)
-   - Role: Ensured application functionality through thorough testing and quality assurance.
-
-5. **Michael Chang** - Documentation and Support
-   - GitHub: [michael-chang](https://github.com/michael-chang)
-   - Role: Documented the codebase, provided user documentation, and offered support.
 
 ## Features
 
