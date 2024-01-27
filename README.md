@@ -1,9 +1,9 @@
-# SPARTA_PROJECT
+# SPARTA PROJECT - JAVA MUSIC PLAYER
 Music Player using java with JavaFX
 
 # Java Music Player Application
 
-This Java Music Player Application is a project developed by a team of 5 members at USIU AFIRCA studying MSIS (Master of Science in Information Systems and Technology). T It provides a user-friendly interface for playing and managing music files on your computer.
+This Java Music Player Application is a project developed by a team of 5 members at USIU AFRICA studying MSIS (Master of Science in Information Systems and Technology). The multi media player provides a user-friendly interface for playing and managing music files on your computer.
 
 ## Team Members
 
@@ -15,20 +15,20 @@ This Java Music Player Application is a project developed by a team of 5 members
    - GitHub: [Fred Nyakagwa](https://github.com/nyakagwafred)
    - Role: Designed and implemented the user interface using JavaFX.
 
-3. **Chris** - Frontend Developer
-   - GitHub: [Chris Rateng](https://github.com/nyakagwafred)
+3. **Kris** - Frontend Developer
+   - GitHub: [Chris Rateng](https://github.com/Throw8008s)
    - Role: Designed and implemented the user interface using JavaFX.
 
 4. **Gloria** - Frontend Developer
-   - GitHub: [Gloria Mairanga](https://github.com/nyakagwafred)
+   - GitHub: [Gloria Mairanga](https://github.com/ngendomairanga)
    - Role: Designed and implemented the user interface using JavaFX.
 
 5. **Patrick** - Quality Assurance
-   - GitHub: [Patrick](https://github.com/nyakagwafred)
+   - GitHub: [Patrick Kitoto](https://github.com/*)
    - Role: Automated and manual testing.
 
-6. **Lawrence** - Quality Assurance
-   - GitHub: [Patrick](https://github.com/nyakagwafred)
+6. **Lawrence** - Mentor
+   - GitHub: [Lawrence Nderu](https://github.com/*)
    - Role: Automated and manual testing.
 
 ## Features
@@ -43,12 +43,16 @@ This Java Music Player Application is a project developed by a team of 5 members
 - Java
 - JavaFX (for the GUI)
 - SQLite (for database)
+- IntelliJ IDEA as the IDE
+- Canva
+- WhatsApp
+- GitHub
 
 ## Getting Started
 
 To run the Java Music Player Application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/java-music-player.git`
+1. Clone the repository: `git clone https://github.com/rayfrank/SPARTA_PROJECT`
 2. Open the project in your preferred Java IDE.
 3. Build and run the application.
 
@@ -67,5 +71,7 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Thank you for using the Java Music Player Application!
+---
+
 
 
