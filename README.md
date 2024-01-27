@@ -1,25 +1,35 @@
 # SPARTA_PROJECT
-Music Player using java
+Music Player using java with JavaFX
 
 # Java Music Player Application
 
-![Java Music Player Logo](path/to/logo.png)
-
-## Introduction
-
-This Java Music Player Application is a project developed by a team of 5 members. It provides a user-friendly interface for playing and managing music files on your computer.
+This Java Music Player Application is a project developed by a team of 5 members at USIU AFIRCA studying MSIS (Master of Science in Information Systems and Technology). T It provides a user-friendly interface for playing and managing music files on your computer.
 
 ## Team Members
 
 1. **Ray** - Team Lead / Backend Developer
-   - GitHub: [Ray](https://github.com/john-doe)
+   - GitHub: [Ray Kibaara](https://github.com/rayfrank)
    - Role: Responsible for overall project coordination and backend development.
 
 2. **Fred** - Frontend Developer
-   - GitHub: [fred](https://github.com/jane-smith)
+   - GitHub: [Fred Nyakagwa](https://github.com/nyakagwafred)
    - Role: Designed and implemented the user interface using JavaFX.
 
+3. **Chris** - Frontend Developer
+   - GitHub: [Chris Rateng](https://github.com/nyakagwafred)
+   - Role: Designed and implemented the user interface using JavaFX.
 
+4. **Gloria** - Frontend Developer
+   - GitHub: [Gloria Mairanga](https://github.com/nyakagwafred)
+   - Role: Designed and implemented the user interface using JavaFX.
+
+5. **Patrick** - Quality Assurance
+   - GitHub: [Patrick](https://github.com/nyakagwafred)
+   - Role: Automated and manual testing.
+
+6. **Lawrence** - Quality Assurance
+   - GitHub: [Patrick](https://github.com/nyakagwafred)
+   - Role: Automated and manual testing.
 
 ## Features
 
