@@ -29,7 +29,7 @@ This Java Music Player Application is a project developed by a team of 5 members
 
 6. **Lawrence** - Mentor
    - GitHub: [Lawrence Nderu](https://github.com/*)
-   - Role: Automated and manual testing.
+   - Role: User Testing.
 
 ## Features
 
@@ -56,17 +56,13 @@ To run the Java Music Player Application locally, follow these steps:
 2. Open the project in your preferred Java IDE.
 3. Build and run the application.
 
-## Contributing
-
-We welcome contributions from the community. If you'd like to contribute, please follow our [Contribution Guidelines](CONTRIBUTING.md).
-
 ## Issues and Bugs
 
-If you encounter any issues or find a bug, please open an issue on our [Issue Tracker](https://github.com/your-username/java-music-player/issues).
+If you encounter any issues or find a bug, please open an issue on our [Issue Tracker](https://github.com/rayfrank/SPARTA_PROJECT/issues).
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
 
 ---
 
