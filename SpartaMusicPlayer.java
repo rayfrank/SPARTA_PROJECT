@@ -27,15 +27,18 @@ public class SpartaMusicPlayer extends Application {
         mediaPlayer = new MediaPlayer(sound);
 
         // Play button
-        Button playButton = new Button("Play");
+        Button playButton = new Button("▶");
+        playButton.setStyle("-fx-font-size: 16px; -fx-background-color: #4CAF50; -fx-text-fill: white;");
         playButton.setOnAction(e -> mediaPlayer.play());
 
         // Pause button
-        Button pauseButton = new Button("Pause");
+        Button pauseButton = new Button("||");
+        pauseButton.setStyle("-fx-font-size: 16px; -fx-background-color: #f44336; -fx-text-fill: white;");
         pauseButton.setOnAction(e -> mediaPlayer.pause());
 
         // Stop button
-        Button stopButton = new Button("Stop");
+        Button stopButton = new Button("■");
+        stopButton.setStyle("-fx-font-size: 16px; -fx-background-color: #ff9800; -fx-text-fill: white;");
         stopButton.setOnAction(e -> mediaPlayer.stop());
 
         // Volume slider
@@ -48,6 +51,7 @@ public class SpartaMusicPlayer extends Application {
         // Layout for music player controls
         HBox musicPlayerControls = new HBox(10, playButton, pauseButton, stopButton);
         VBox layout = new VBox(20, musicPlayerControls, volumeSlider);
+        layout.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 20px;");
         layout.setPrefSize(320, 240);
 
         // Create the scene
@@ -57,7 +61,9 @@ public class SpartaMusicPlayer extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 }
+
