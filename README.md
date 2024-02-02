@@ -15,7 +15,7 @@ This Java Music Player Application is a project developed by a team of 5 members
    - GitHub: [Fred Nyakagwa](https://github.com/nyakagwafred)
    - Role: Designed and implemented the user interface using JavaFX.
 
-3. **Kris** - Frontend Developer
+3. **Christopher** - Frontend Developer
    - GitHub: [Chris Rateng](https://github.com/Throw8008s)
    - Role: Designed and implemented the user interface using JavaFX.
 
