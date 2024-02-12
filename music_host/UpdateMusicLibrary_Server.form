@@ -41,7 +41,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="artistName_label" min="-2" pref="377" max="-2" attributes="0"/>
                           <Component id="albumName_label" min="-2" pref="377" max="-2" attributes="0"/>
-                          <Component id="jTextField6" min="-2" pref="377" max="-2" attributes="0"/>
+                          <Component id="release_yearlabel" min="-2" pref="377" max="-2" attributes="0"/>
                           <Component id="genre_label" min="-2" pref="377" max="-2" attributes="0"/>
                           <Component id="trackDuration_label" min="-2" pref="377" max="-2" attributes="0"/>
                           <Component id="songTitle_label" min="-2" pref="377" max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="release_yearlabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -162,7 +162,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Year of Release:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -196,7 +196,7 @@
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="release_yearlabel">
     </Component>
     <Component class="javax.swing.JTextField" name="albumName_label">
     </Component>

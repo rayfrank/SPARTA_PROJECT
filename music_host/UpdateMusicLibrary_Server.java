@@ -46,7 +46,7 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
         trackDuration_label = new javax.swing.JTextField();
         genre_label = new javax.swing.JTextField();
         musicPath_label = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        release_yearlabel = new javax.swing.JTextField();
         albumName_label = new javax.swing.JTextField();
         uploadArt_label = new javax.swing.JTextField();
         uploadMusic_btn = new javax.swing.JButton();
@@ -66,7 +66,7 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
 
         jLabel6.setText("Upload Music :");
 
-        jLabel7.setText("jLabel1");
+        jLabel7.setText("Year of Release:");
 
         jLabel8.setText("Upload Album Art :");
 
@@ -118,7 +118,7 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(artistName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(albumName_label, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(release_yearlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(genre_label, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(trackDuration_label, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(songTitle_label, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +163,7 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(release_yearlabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,7 +193,7 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
     genre_label.setText("");
     artistName_label.setText("");
     albumName_label.setText("");
-    jTextField6.setText("");
+    release_yearlabel.setText("");
     musicPath_label.setText("");
     trackDuration_label.setText("");
     uploadArt_label.setText("");
@@ -299,8 +299,8 @@ public class UpdateMusicLibrary_Server extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField musicPath_label;
+    private javax.swing.JTextField release_yearlabel;
     private javax.swing.JButton save_btn;
     private javax.swing.JTextField songTitle_label;
     private javax.swing.JTextField trackDuration_label;

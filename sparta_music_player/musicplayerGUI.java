@@ -5,10 +5,16 @@
  */
 package sparta_music_player;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.Queue;
+import javafx.scene.media.MediaPlayer;
 import javax.swing.JFileChooser;
 import javax.swing.Timer;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -17,9 +23,16 @@ import javax.swing.Timer;
 
 
 public class musicplayerGUI extends javax.swing.JFrame {
-    
- 
 
+    
+    private MediaPlayer mediaPlayer; // Use appropriate media player class
+    private Queue<String> musicQueue; // Queue to manage music tracks
+    private Map<String, String> albumArtMap; // Map to store music file paths and corresponding album art paths
+
+    // Temporary path for testing
+    private static final String TEMP_MUSIC_PATH = "/path/to/your/music.mp3";
+
+    
     private boolean isPlaying = false;
     private Timer timer;
     private int musicDuration;
@@ -33,20 +46,38 @@ public class musicplayerGUI extends javax.swing.JFrame {
      * Creates new form musicplayerGUI
      */
     public musicplayerGUI() {
-        initComponents();
+        
+        initComponents(); 
+        
         musicDuration = songDurations[currentSongIndex];
         
         music_slider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        
+        // Set the initial value to the minimum to start on the left side
+        music_slider.setValue(music_slider.getMinimum());
+        volume_Slider.setValue(music_slider.getMinimum());
 
         // Add ChangeListener to the music_slider
         music_slider.addChangeListener(new javax.swing.event.ChangeListener() {
+            
         public void stateChanged(javax.swing.event.ChangeEvent evt) {
             music_sliderStateChanged(evt);
            }
     });
 
-    }   
+}
 
+     // Handle volume_Slider state change
+    private void volume_SliderStateChanged(javax.swing.event.ChangeEvent evt) {
+        if (!volume_Slider.getValueIsAdjusting()) {
+            // Slider value changed, update volume
+            int newVolume = volume_Slider.getValue();
+            System.out.println("Volume changed to: " + newVolume);
+
+            // Add logic to set the volume in your music player
+        }
+    }
+    
     // Handle music_slider state change
     private void music_sliderStateChanged(javax.swing.event.ChangeEvent evt) {
         if (!music_slider.getValueIsAdjusting()) {
@@ -55,7 +86,10 @@ public class musicplayerGUI extends javax.swing.JFrame {
             System.out.println("Seeking to position: " + newPosition);
             // Add logic to set the playback position in your music player
     }
+         
 }
+   
+
     
     
     /**
@@ -78,12 +112,13 @@ public class musicplayerGUI extends javax.swing.JFrame {
         next_button = new javax.swing.JButton();
         prev_button = new javax.swing.JButton();
         music_art = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        track_list = new javax.swing.JTextPane();
+        music_list = new java.awt.List();
+        volume_Slider = new javax.swing.JSlider();
+        volume_label = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        search_menu = new javax.swing.JMenu();
+        createPlaylist_menu = new javax.swing.JMenu();
+        genre_menu = new javax.swing.JMenu();
 
         jMenu4.setText("File");
         jMenuBar2.add(jMenu4);
@@ -130,20 +165,24 @@ public class musicplayerGUI extends javax.swing.JFrame {
         );
         music_artLayout.setVerticalGroup(
             music_artLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 162, Short.MAX_VALUE)
+            .addGap(0, 197, Short.MAX_VALUE)
         );
 
-        track_list.setEditable(false);
-        jScrollPane1.setViewportView(track_list);
+        volume_label.setText("Volume");
 
-        jMenu1.setText("Search");
-        jMenuBar1.add(jMenu1);
+        search_menu.setText("Search");
+        search_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_menuActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(search_menu);
 
-        jMenu2.setText("Create Playlist");
-        jMenuBar1.add(jMenu2);
+        createPlaylist_menu.setText("Create Playlist");
+        jMenuBar1.add(createPlaylist_menu);
 
-        jMenu6.setText("Genre");
-        jMenuBar1.add(jMenu6);
+        genre_menu.setText("Genre");
+        jMenuBar1.add(genre_menu);
 
         setJMenuBar(jMenuBar1);
 
@@ -158,14 +197,22 @@ public class musicplayerGUI extends javax.swing.JFrame {
                 .addComponent(pause_play_button, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(volume_label)
+                        .addGap(122, 122, 122))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(volume_Slider, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(62, Short.MAX_VALUE)
+                        .addContainerGap(66, Short.MAX_VALUE)
                         .addComponent(music_art, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(86, 86, 86)
+                        .addComponent(music_list, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -182,7 +229,9 @@ public class musicplayerGUI extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(music_art, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(music_list, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(song_title_label, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,8 +244,12 @@ public class musicplayerGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pause_play_button)
                     .addComponent(prev_button)
-                    .addComponent(next_button))
-                .addGap(40, 40, 40))
+                    .addComponent(next_button)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(volume_label, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(volume_Slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -230,6 +283,11 @@ private void togglePlayPause() {
         // TODO add your handling code here:
         playPreviousSong();
     }//GEN-LAST:event_prev_buttonActionPerformed
+
+    private void search_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_menuActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_search_menuActionPerformed
 
     
     private void playNextSong() {
@@ -326,21 +384,22 @@ private void togglePlayPause() {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel artist_name_label;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu createPlaylist_menu;
+    private javax.swing.JMenu genre_menu;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JCheckBox like_checkbox;
     private javax.swing.JPanel music_art;
+    private java.awt.List music_list;
     private javax.swing.JSlider music_slider;
     private javax.swing.JButton next_button;
     private javax.swing.JToggleButton pause_play_button;
     private javax.swing.JButton prev_button;
+    private javax.swing.JMenu search_menu;
     private javax.swing.JLabel song_title_label;
-    private javax.swing.JTextPane track_list;
+    private javax.swing.JSlider volume_Slider;
+    private javax.swing.JLabel volume_label;
     // End of variables declaration//GEN-END:variables
 }
