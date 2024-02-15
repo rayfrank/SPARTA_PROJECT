@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -157,46 +158,53 @@ public class login_page extends javax.swing.JFrame {
     }//GEN-LAST:event_show_btnActionPerformed
 
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
-        // TODO add your handling code here:
+         // Get username and password from the input fields
+    String username = username_field.getText();
+    String password = password_field.getText();
 
-        String username = username_field.getText();
-        String password = password_field.getText();
+    try {
+        // Connect to the database
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sparta_player", "root", ""); 
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
 
-        try {
-            // Connect to the database
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sparta_player", "root", ""); 
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
-            ps.setString(1, username);
-            ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            String storedPassword = rs.getString("password");
+            String storedSalt = rs.getString("salt");
 
-            if (rs.next()) {
-                String dbPassword = rs.getString("password");
-                if (dbPassword.equals(password)) {
-                    // Successful login
-                    JOptionPane.showMessageDialog(null, "Login successful!");
-                    // Proceed with actions after successful login
-                    // Open musicplayerGUI
-                    musicplayerGUI musicplayerGUI = new musicplayerGUI(); // Assuming MusicPlayerGUI has a public constructor
-                    musicplayerGUI.setVisible(true);
+            // Hash the provided password with the retrieved salt
+            String hashedPassword = BCrypt.hashpw(password, storedSalt);
 
-                    // Hide the current login frame (optional)
-                    
-                    // ((JFrame) usernameField.getTopLevelAncestor()).setVisible(false);
-                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "Login Failed  \nTRY AGAIN...!!");
-            //dispose();
-            password_field.setText("");
-            username_field.setText("");
-                }
+            // Compare the generated hash with the stored hashed password
+            if (storedPassword.equals(hashedPassword)) {
+                // Successful login
+                JOptionPane.showMessageDialog(null, "Login successful!");
+
+                // Proceed with actions after successful login
+                // Open Music Player GUI and dispose current frame
+                musicplayerGUI musicPlayerGUI = new musicplayerGUI();
+                musicPlayerGUI.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect username or password!");
+                // Clear password field
+                password_field.setText("");
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "User not found!");
+            // Clear both fields
+            username_field.setText("");
+            password_field.setText("");
+        }
+
             // Close resources
             rs.close();
             ps.close();
             conn.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error connecting to database: " + ex.getMessage()); //handling DB connection 
-    }//GEN-LAST:event_login_btnActionPerformed
+    }                                         
     
 
     }//GEN-LAST:event_login_btnActionPerformed

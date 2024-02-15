@@ -5,8 +5,15 @@
  */
 package sparta_music_player;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -14,6 +21,15 @@ import javax.swing.JOptionPane;
  */
 public class newUser_page extends javax.swing.JFrame {
 
+     // Database connection details (replace with your actual values)
+    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_URL = "jdbc:mysql://localhost/sparta_player";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
+
+    private PreparedStatement preparedStatement;
+    private Connection connection;
+    
     /**
      * Creates new form newUser_page
      */
@@ -65,6 +81,11 @@ public class newUser_page extends javax.swing.JFrame {
         });
 
         submit_btn.setText("Submit");
+        submit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submit_btnActionPerformed(evt);
+            }
+        });
 
         clear_btn.setText("Clear");
         clear_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -147,8 +168,9 @@ public class newUser_page extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_btnActionPerformed
-        // TODO add your handling code here:
+      
         
             // Clear the data in the text fields
     name_label.setText("");
@@ -164,27 +186,109 @@ public class newUser_page extends javax.swing.JFrame {
     }//GEN-LAST:event_clear_btnActionPerformed
 
     private void return_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_btnActionPerformed
-        // TODO add your handling code here:
         
-        // Open login_page
-                    login_page login_page = new login_page(); // Assuming MusicPlayerGUI has a public constructor
-                    login_page.setVisible(true);
-                    
-        // Dispose the old frame (optional)
-        ((JFrame) name_label.getTopLevelAncestor()).dispose();          
+         // Open login_page
+        login_page login_page = new login_page();
+        login_page.setVisible(true);
+        // dispose current frame
+        dispose();
+             
     }//GEN-LAST:event_return_btnActionPerformed
 
     private void show_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_btnActionPerformed
-        // TODO add your handling code here:
-        
-                 // Masking your password:
-        if (show_btn.isSelected()) {
-       password_label.setEchoChar((char)0); 
-   } 
-        else {
-      password_label.setEchoChar('*');
-   }
+        //Masking your password
+        char echoChar = show_btn.isSelected() ? (char) 0 : '*';
+        password_label.setEchoChar(echoChar);
+        password1_label.setEchoChar(echoChar); // Also set for confirm password field
+    
     }//GEN-LAST:event_show_btnActionPerformed
+
+    private void submit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_btnActionPerformed
+       
+        // Get user input from text fields
+                String name = name_label.getText();
+                String username = username_label.getText();
+                String email = email_label.getText();
+                String password = new String(password_label.getPassword()); // Convert char[] to String
+                String password1 = new String(password1_label.getPassword());
+
+             //Validate Input
+if (!password.equals(password1)) {
+            JOptionPane.showMessageDialog(null, "Passwords don't match!");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Invalid email format!");
+            return;
+        }
+
+        try {
+            
+             // Generate a random salt
+        String salt = BCrypt.gensalt();
+
+        // Hash the password with the salt
+        String hashedPassword = BCrypt.hashpw(password, salt);
+
+//Add Inputs to the Users Table
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/sparta_player", "root", "");
+            String sql = "INSERT INTO users (username, password, email, name, salt) VALUES (?, ?, ?, ?, ?)";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, username);
+        preparedStatement.setString(2, hashedPassword); // Save hashed password
+        preparedStatement.setString(3, email);
+        preparedStatement.setString(4, name);
+        preparedStatement.setString(5, salt); // Save salt
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                JOptionPane.showMessageDialog(null, "User registered successfully!");
+                clearFields(); // Clear fields after successful registration
+                
+                // Open Music Player GUI and dispose current frame
+                musicplayerGUI musicPlayerGUI = new musicplayerGUI();
+                musicPlayerGUI.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to register user. Please try again.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        }
+      
+    private void clearFields() {
+        name_label.setText("");
+        username_label.setText("");
+        email_label.setText("");
+        password_label.setText("");
+        password1_label.setText("");
+    }
+    
+
+    // Regex for email validation (you can customize as needed)
+    private static final String EMAIL_REGEX = "^[\\w!#$%&'*+/=?^{|}~-]+(?:\\.[\\w!#$%&'*+/=?^{|}~-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+    
+    
+    private static boolean validateEmail(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }//GEN-LAST:event_submit_btnActionPerformed
 
     /**
      * @param args the command line arguments
