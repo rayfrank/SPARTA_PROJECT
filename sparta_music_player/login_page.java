@@ -36,8 +36,8 @@ public class login_page extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         show_btn = new javax.swing.JRadioButton();
         login_btn = new javax.swing.JButton();
@@ -45,15 +45,20 @@ public class login_page extends javax.swing.JFrame {
         exit_btn = new javax.swing.JButton();
         username_field = new javax.swing.JTextField();
         password_field = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sparta_music_player/fifa-19-ahq-promo-b.jpg"))); // NOI18N
+        background.setText(" ");
+
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         jLabel1.setText("Username /  Email");
 
-        jLabel2.setText("jLabel1");
-
+        jLabel3.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         jLabel3.setText("Password");
 
+        show_btn.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         show_btn.setText("Hide / Show");
         show_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +66,7 @@ public class login_page extends javax.swing.JFrame {
             }
         });
 
+        login_btn.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         login_btn.setText("Log In");
         login_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +74,7 @@ public class login_page extends javax.swing.JFrame {
             }
         });
 
+        signup_btn.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         signup_btn.setText("New User");
         signup_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +82,7 @@ public class login_page extends javax.swing.JFrame {
             }
         });
 
+        exit_btn.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         exit_btn.setText("Exit");
         exit_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,55 +90,68 @@ public class login_page extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Castellar", 1, 18)); // NOI18N
+        jLabel2.setText("Sparta Music Player ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 205, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(login_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(username_field)
-                            .addComponent(password_field)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(show_btn)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(signup_btn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                                .addComponent(exit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(62, 62, 62))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(signup_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(65, 65, 65)
+                                    .addComponent(exit_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addContainerGap())
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(58, 58, 58)
+                                    .addComponent(show_btn)
+                                    .addGap(102, 102, 102)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(username_field, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(username_field, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username_field, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(show_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_btn)
                     .addComponent(signup_btn)
                     .addComponent(exit_btn))
                 .addGap(45, 45, 45))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -160,16 +181,24 @@ public class login_page extends javax.swing.JFrame {
     private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
          // Get username and password from the input fields
     String username = username_field.getText();
+    String email = username_field.getText();
     String password = password_field.getText();
+    
+     // Check if the username or email and password fields are empty
+    if (username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter both username (or email) and password!");
+        return; // Exit the method
+    }
 
     try {
         // Connect to the database
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/sparta_player", "root", ""); 
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE username = ? OR email = ?");
         ps.setString(1, username);
+        ps.setString(2, email);
         ResultSet rs = ps.executeQuery();
 
-        if (rs.next()) {
+         if (rs.next()) {
             String storedPassword = rs.getString("password");
             String storedSalt = rs.getString("salt");
 
@@ -182,22 +211,30 @@ public class login_page extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Login successful!");
 
                 // Proceed with actions after successful login
-                // Open Music Player GUI and dispose current frame
-                musicplayerGUI musicPlayerGUI = new musicplayerGUI();
-                musicPlayerGUI.setVisible(true);
-                dispose();
+                int userType = rs.getInt("user_Type");
+                if (userType == 1 || userType == 2) {
+                    // Open updateMusic_Library frame in the music_host package
+                    music_host.UpdateMusicLibrary_Server UpdateMusicLibrary_Server = new music_host.UpdateMusicLibrary_Server();
+                    UpdateMusicLibrary_Server.setVisible(true);
+                } else if (userType == 3) {
+                    // Open musicplayerGUI frame
+                    musicplayerGUI musicPlayerGUI = new musicplayerGUI();
+                    musicPlayerGUI.setVisible(true);
+                }
+                dispose(); // Close current frame
             } else {
-                JOptionPane.showMessageDialog(null, "Incorrect username or password!");
+                // Incorrect password
+                JOptionPane.showMessageDialog(null, "Incorrect password! Please try again.");
                 // Clear password field
                 password_field.setText("");
             }
         } else {
+            // User not found
             JOptionPane.showMessageDialog(null, "User not found!");
             // Clear both fields
             username_field.setText("");
             password_field.setText("");
         }
-
             // Close resources
             rs.close();
             ps.close();
@@ -256,6 +293,7 @@ public class login_page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background;
     private javax.swing.JButton exit_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
