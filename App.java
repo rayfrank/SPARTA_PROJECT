@@ -28,11 +28,11 @@ public class SpartaMusicPlayer extends Application {
     public void start(Stage stage) {
         // Create buttons
         Button playButton = new Button("▶");
-        playButton.setStyle("-fx-font-size: 16px; -fx-background-color: #4CAF50; -fx-text-fill: white;");
+        playButton.setStyle("-fx-font-size: 16px; -fx-background-color: #00cb80; -fx-text-fill: white;");
         playButton.setOnAction(e -> mediaPlayer.play());
 
         Button pauseButton = new Button("||");
-        pauseButton.setStyle("-fx-font-size: 16px; -fx-background-color: #f44336; -fx-text-fill: white;");
+        pauseButton.setStyle("-fx-font-size: 16px; -fx-background-color: #30ccff; -fx-text-fill: white;");
         pauseButton.setOnAction(e -> mediaPlayer.pause());
 
         Button stopButton = new Button("■");
@@ -48,12 +48,14 @@ public class SpartaMusicPlayer extends Application {
         prevButton.setOnAction(e -> playPreviousTrack());
 
         Button addTrackButton = new Button("Add Track");
-        addTrackButton.setStyle("-fx-font-size: 16px; -fx-background-color: #9C27B0; -fx-text-fill: white;");
+        addTrackButton.setStyle("-fx-font-size: 16px; -fx-background-color: #2989ff; -fx-text-fill: white;");
         addTrackButton.setOnAction(e -> addTrack());
 
         Button switchVideoButton = new Button("Switch to Video");
-        switchVideoButton.setStyle("-fx-font-size: 16px; -fx-background-color: #E32021; -fx-text-fill: white;");
+        switchVideoButton.setStyle("-fx-font-size: 16px; -fx-background-color: #007fd9; -fx-text-fill: white;");
         switchVideoButton.setOnAction(e -> switchToVideo());
+        switchVideoButton.getStyleClass().add("custom-button");
+
 
         // Volume slider
         Slider volumeSlider = new Slider();
@@ -70,8 +72,9 @@ public class SpartaMusicPlayer extends Application {
         // Layout for music player controls and album cover
         HBox musicPlayerControls = new HBox(10, playButton, pauseButton, stopButton, prevButton, nextButton);
         VBox layout = new VBox(20, albumCover, musicPlayerControls, volumeSlider, addTrackButton, switchVideoButton);
-        layout.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 20px;");
+        layout.setStyle("-fx-background-color: #000554; -fx-padding: 20px;");
         layout.setPrefSize(400, 400);
+
 
         // Create the scene
         Scene scene = new Scene(layout);
@@ -161,11 +164,14 @@ public class SpartaMusicPlayer extends Application {
             VBox videoLayout = new VBox(20, mediaView, videoControls);
             videoLayout.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 20px;");
             videoLayout.setPrefSize(800, 600);
+            videoLayout.getStyleClass().add("custom-stage");
+
 
             // Create the scene and show the video player
             Scene videoScene = new Scene(videoLayout);
             Stage videoStage = new Stage();
             videoStage.setTitle("Video Player");
+            videoScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
             videoStage.setScene(videoScene);
             videoStage.show();
 
@@ -178,3 +184,4 @@ public class SpartaMusicPlayer extends Application {
         launch(args);
     }
 }
+
