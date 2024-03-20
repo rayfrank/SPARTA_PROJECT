@@ -4,9 +4,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.net.URL?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.forgotScreenController">
+   <stylesheets>
+      <URL value="@Style.css" />
+   </stylesheets>
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: c8bcc6;">
          <children>
@@ -15,22 +19,22 @@
                   <Image url="@images/sparta_jukebox-removebg-smaller25%25.png" />
                </image>
             </ImageView>
-            <Label layoutX="12.0" layoutY="32.0" prefHeight="25.0" prefWidth="167.0" text="Forgot Password">
+            <Label layoutX="19.0" layoutY="32.0" prefHeight="25.0" prefWidth="167.0" text="Forgot Password">
                <font>
                   <Font name="Bodoni MT Black" size="18.0" />
                </font></Label>
          </children></AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #253646;">
          <children>
-            <Label layoutX="73.0" layoutY="57.0" prefHeight="26.0" prefWidth="151.0" text="Username :" textFill="WHITE">
+            <Label layoutX="155.0" layoutY="56.0" prefHeight="26.0" prefWidth="151.0" text="Username :" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></Label>
-            <Label layoutX="73.0" layoutY="158.0" prefHeight="26.0" prefWidth="151.0" text="PIN :" textFill="WHITE">
+            <Label layoutX="155.0" layoutY="157.0" prefHeight="26.0" prefWidth="151.0" text="PIN :" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></Label>
-            <Label layoutX="67.0" layoutY="249.0" prefHeight="26.0" prefWidth="151.0" text="New Password :" textFill="WHITE">
+            <Label layoutX="149.0" layoutY="248.0" prefHeight="26.0" prefWidth="151.0" text="New Password :" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></Label>
@@ -38,22 +42,37 @@
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></PasswordField>
-            <TextField fx:id="pin_field"  id="pin_field" layoutX="67.0" layoutY="200.0" prefHeight="25.0" prefWidth="243.0">
+            <TextField id="pin_field" fx:id="pin_field" layoutX="67.0" layoutY="200.0" prefHeight="25.0" prefWidth="243.0">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></TextField>
-            <TextField fx:id="username_field"  id="username_field" layoutX="67.0" layoutY="103.0" prefHeight="25.0" prefWidth="243.0">
+            <TextField id="username_field" fx:id="username_field" layoutX="67.0" layoutY="103.0" prefHeight="25.0" prefWidth="243.0">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></TextField>
-            <Button id="submit_btn" layoutX="74.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="25.0" prefWidth="84.0" text="Submit">
+            <Button id="submit_btn" layoutX="67.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Submit" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></Button>
-            <Button id="return_btn" layoutX="244.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" prefHeight="25.0" prefWidth="84.0" text="Return">
+            <Button id="return_btn" layoutX="227.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleReturnButtonAction" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: c8bcc6; -fx-border-radius: 10px;" text="Return" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font></Button>
+            <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="67.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/username.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="67.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/pin_32.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="67.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/password_42.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </children>
 </AnchorPane>

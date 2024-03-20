@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.sparta.jukebox_app.musicPlayer_GUIController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="492.0" prefWidth="669.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.musicPlayer_GUIController">
+   <children>
+      <AnchorPane prefHeight="413.0" prefWidth="113.0" style="-fx-background-color: c8bcc6;" />
+      <AnchorPane layoutY="413.0" prefHeight="88.0" prefWidth="669.0" style="-fx-background-color: black;">
+         <children>
+            <Slider id="seek_slider" fx:id="seek_slider" layoutX="126.0" layoutY="14.0" prefHeight="14.0" prefWidth="417.0" />
+            <Button id="play_btn" fx:id="play_btn" layoutX="240.0" layoutY="38.0" mnemonicParsing="false" text="Play" />
+            <Button id="prev_btn" fx:id="prev_btn" layoutX="157.0" layoutY="38.0" mnemonicParsing="false" style="-fx-background-image: &quot;@images/repeat.png&quot;;" text="Prev" />
+            <Button id="next_btn" fx:id="next_btn" layoutX="314.0" layoutY="38.0" mnemonicParsing="false" text="Next" />
+            <Button id="repeat_btn" fx:id="repeat_btn" layoutX="403.0" layoutY="38.0" mnemonicParsing="false" text="Repeat" />
+            <ImageView fitHeight="72.0" fitWidth="85.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/I%20am%20%20I%20was.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane layoutX="113.0" prefHeight="413.0" prefWidth="556.0" style="-fx-background-color: #253646;" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
 </AnchorPane>

@@ -4,8 +4,13 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.net.URL?>
 
-<AnchorPane prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.signupScreenController">
+<AnchorPane prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.signupScreenController">
+   <stylesheets>
+      <URL value="@Style.css" />
+   </stylesheets>
    <children>
       <AnchorPane layoutY="-7.0" prefHeight="551.0" prefWidth="184.0" style="-fx-background-color: c8bcc6;">
          <children>
@@ -22,65 +27,63 @@
          </children></AnchorPane>
       <AnchorPane layoutX="184.0" layoutY="-1.0" prefHeight="544.0" prefWidth="455.0" style="-fx-background-color: #253646;">
          <children>
-            <Label id="name_label" layoutX="31.0" layoutY="34.0" prefHeight="26.0" prefWidth="122.0" text="Enter your Name:" textFill="WHITE">
+            <Label id="name_label" layoutX="31.0" layoutY="34.0" prefHeight="26.0" prefWidth="122.0" text="Enter your Name:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="username_label" layoutX="31.0" layoutY="101.0" prefHeight="26.0" prefWidth="161.0" text="Enter your Username:" textFill="WHITE">
+            <Label id="username_label" layoutX="31.0" layoutY="101.0" prefHeight="26.0" prefWidth="161.0" text="Enter your Username:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="contact_label" layoutX="31.0" layoutY="168.0" prefHeight="26.0" prefWidth="184.0" text="Enter your Phone Number:" textFill="WHITE">
+            <Label id="contact_label" layoutX="31.0" layoutY="168.0" prefHeight="26.0" prefWidth="184.0" text="Enter your Phone Number:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="email_label" layoutX="31.0" layoutY="239.0" prefHeight="26.0" prefWidth="184.0" text="Enter your Email Address:" textFill="WHITE">
+            <Label id="email_label" layoutX="31.0" layoutY="239.0" prefHeight="26.0" prefWidth="184.0" text="Enter your Email Address:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="pin_label" layoutX="31.0" layoutY="307.0" prefHeight="26.0" prefWidth="148.0" text="Enter your PIN:" textFill="WHITE">
+            <Label id="pin_label" layoutX="31.0" layoutY="307.0" prefHeight="26.0" prefWidth="148.0" text="Enter your PIN:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="password1_label" layoutX="31.0" layoutY="366.0" prefHeight="26.0" prefWidth="148.0" text="Enter your Password:" textFill="WHITE">
+            <Label id="password1_label" layoutX="31.0" layoutY="366.0" prefHeight="26.0" prefWidth="148.0" text="Enter your Password:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Label id="password2_label" layoutX="31.0" layoutY="428.0" prefHeight="26.0" prefWidth="172.0" text="Confirm your Password:" textFill="WHITE">
+            <Label id="password2_label" layoutX="31.0" layoutY="428.0" prefHeight="26.0" prefWidth="172.0" text="Confirm your Password:" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Button id="submit_btn" layoutX="31.0" layoutY="487.0" mnemonicParsing="false"
-                    prefHeight="26.0" prefWidth="85.0" onAction="#handleSignupButtonAction" text="Submit">
+            <Button id="submit_btn" layoutX="31.0" layoutY="487.0" mnemonicParsing="false" onAction="#handleSignupButtonAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Submit" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Button>
-            <Button id="login_btn" layoutX="173.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="26.0" prefWidth="85.0" text="Login">
+            <Button id="login_btn" layoutX="173.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Login" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Button>
-            <Button id="exit_btn" layoutX="327.0" layoutY="488.0" mnemonicParsing="false"
-                    onAction="#handleExitButtonAction" prefHeight="26.0" prefWidth="85.0" text="Exit">
+            <Button id="exit_btn" layoutX="327.0" layoutY="488.0" mnemonicParsing="false" onAction="#handleExitButtonAction" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Exit" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="name_field" id="name_field" layoutX="215.0" layoutY="35.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="username_field" id="username_field" layoutX="216.0" layoutY="102.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="contact_field" id="contact_field" layoutX="216.0" layoutY="169.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="email_field" id="email_field" layoutX="216.0" layoutY="240.0" prefHeight="25.0" prefWidth="217.0" />
-            <TextField fx:id="pin_field" id="pin_field" layoutX="216.0" layoutY="308.0" prefHeight="25.0" prefWidth="217.0" />
-            <PasswordField fx:id="password1_field" id="password1_field" layoutX="216.0" layoutY="367.0" prefHeight="25.0" prefWidth="217.0" />
-            <PasswordField fx:id="password2_field" id="password2_field" layoutX="216.0" layoutY="429.0" prefHeight="25.0" prefWidth="217.0" />
+            <TextField id="name_field" fx:id="name_field" layoutX="215.0" layoutY="35.0" prefHeight="25.0" prefWidth="217.0" />
+            <TextField id="username_field" fx:id="username_field" layoutX="216.0" layoutY="102.0" prefHeight="25.0" prefWidth="217.0" />
+            <TextField id="contact_field" fx:id="contact_field" layoutX="216.0" layoutY="169.0" prefHeight="25.0" prefWidth="217.0" />
+            <TextField id="email_field" fx:id="email_field" layoutX="216.0" layoutY="240.0" prefHeight="25.0" prefWidth="217.0" />
+            <TextField id="pin_field" fx:id="pin_field" layoutX="216.0" layoutY="308.0" prefHeight="25.0" prefWidth="217.0" />
+            <PasswordField id="password1_field" fx:id="password1_field" layoutX="215.0" layoutY="367.0" prefHeight="25.0" prefWidth="217.0" />
+            <PasswordField id="password2_field" fx:id="password2_field" layoutX="216.0" layoutY="429.0" prefHeight="25.0" prefWidth="217.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
