@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -18,6 +19,9 @@ public class loginScreenController {
 
     @FXML
     private PasswordField password_field;
+
+    @FXML
+    private AnchorPane rootPane; // AnchorPane reference for displaying toast notifications
 
     // Event handler for the Login button
     @FXML
@@ -32,6 +36,8 @@ public class loginScreenController {
             // Close the login screen
             Stage oldStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             oldStage.close();
+            Toast successToast = new Toast("Logged in successfully!");
+            rootPane.getChildren().add(successToast);
 
 
             // Open the musicPlayer_GUI.fxml screen
@@ -48,18 +54,11 @@ public class loginScreenController {
             // Check if username exists in the database
             if (!databaseConnection.checkUsernameExists(username)) {
                 // Prompt the user to create an account
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Account Creation Required");
-                alert.setHeaderText(null);
-                alert.setContentText("Username does not exist in the database. Please create an account.");
-                alert.showAndWait();
+                Toast errorToast = new Toast("Username does not exist in the database. Please create an account.");
+                rootPane.getChildren().add(errorToast);
             } else {
-                // Display an error message for incorrect password
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Login Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Incorrect password. Please try again.");
-                alert.showAndWait();
+                Toast errorToast = new Toast("Incorrect password. Please try again.");
+                rootPane.getChildren().add(errorToast);
             }
         }
     }

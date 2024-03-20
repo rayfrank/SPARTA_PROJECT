@@ -8,3 +8,7 @@
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
+
+.toast-label {
+    -fx-text-fill: white;
+}

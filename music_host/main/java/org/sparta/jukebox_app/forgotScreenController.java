@@ -6,9 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +20,9 @@ public class forgotScreenController {
     @FXML
     private PasswordField password_field;
 
+    @FXML
+    private AnchorPane rootPane;
+
     // Event handler for the Login button
     @FXML
     public void handleSubmitButtonAction(ActionEvent event) {
@@ -28,7 +31,7 @@ public class forgotScreenController {
         String newPassword = password_field.getText();
 
         if (username.isEmpty() || newPassword.isEmpty()) {
-            showAlert("Please enter username and new password.");
+            showNotification("Please enter username and new password.");
             return;
         }
 
@@ -39,25 +42,22 @@ public class forgotScreenController {
             String pin = ""; // Retrieve user's PIN from the database using username
 
             if (dbConnection.resetPassword(username, pin, newPassword)) {
-                showAlert("Password reset successfully.");
+                showNotification("Password reset successfully.");
             } else {
-                showAlert("Password reset failed. Please check your username and PIN.");
+                showNotification("Password reset failed. Please check your username and PIN.");
             }
         } else {
-            showAlert("Username not found in the database.");
+            showNotification("Username not found in the database.");
         }
     }
 
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Password Reset");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
+    // Method to show toast notification messages
+    private void showNotification(String message) {
+        Toast toast = new Toast(message);
+        rootPane.getChildren().add(toast); // Add toast to the rootPane
     }
 
-
-    // Event handler for the SignUp button
+       // Event handler for the SignUp button
     @FXML
     public void handleReturnButtonAction(ActionEvent event) {
         try {
@@ -72,4 +72,5 @@ public class forgotScreenController {
             e.printStackTrace();
         }
     }
+
 }

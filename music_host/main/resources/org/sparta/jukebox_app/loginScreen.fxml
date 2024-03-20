@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import java.net.URL?>
 
-<AnchorPane prefHeight="349.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.loginScreenController">
+<AnchorPane fx:id="rootPane" prefHeight="349.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sparta.jukebox_app.loginScreenController">
    <stylesheets>
       <URL value="@Style.css" />
    </stylesheets>
@@ -43,17 +42,17 @@
                   <Font name="JetBrains Mono Light" size="14.0" />
                </font>
             </TextField>
-            <Button id="login_btn" layoutX="58.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="24.0" prefWidth="83.0" style="-fx-background-color: tranparent; -fx-border-color: c8bcc6; -fx-border-radius: 10px;" text="Login" textFill="#c8bcc6">
+            <Button id="login_btn" layoutX="14.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="24.0" prefWidth="83.0" style="-fx-background-color: tranparent; -fx-border-color: c8bcc6; -fx-border-radius: 10px;" text="Login" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="13.0" />
                </font>
             </Button>
-            <Button id="signup_btn" layoutX="176.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-border-color: c8bcc6; -fx-border-radius: 10px;" text="Signup" textFill="#c8bcc6">
+            <Button id="signup_btn" layoutX="116.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleSignUpButtonAction" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-border-color: c8bcc6; -fx-border-radius: 10px;" text="Signup" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="13.0" />
                </font>
             </Button>
-            <Button id="forget_btn" layoutX="292.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleForgetButtonAction" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Forget" textFill="#c8bcc6">
+            <Button id="forget_btn" layoutX="229.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleForgetButtonAction" prefHeight="28.0" prefWidth="140.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: c8bcc6;" text="Forgot Password" textFill="#c8bcc6">
                <font>
                   <Font name="JetBrains Mono Light" size="13.0" />
                </font>
