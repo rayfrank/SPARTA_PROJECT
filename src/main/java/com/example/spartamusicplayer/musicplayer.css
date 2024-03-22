@@ -1,0 +1,14 @@
+.music-player {
+    -fx-background-image: url("C:\Users\rayte\IdeaProjects\SpartaMusicPlayer\src\techbackground.png"); /* Replace with your image path */
+    -fx-background-size: cover; /* Adjust size as needed (cover, contain, etc.) */
+}
+.play-button {
+    -fx-background-color: #002733;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.play-button:hover
+{
+    -fx-background-color: #022959;
+}
